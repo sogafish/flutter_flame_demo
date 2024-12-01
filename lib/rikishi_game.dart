@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flame/game.dart';
 import 'package:flutter_flame_demo/components/rikishi.dart';
-import 'package:flutter_flame_demo/components/world.dart';
+import 'package:flutter_flame_demo/components/rikishi_world.dart';
 
 class RikishiGame extends FlameGame {
   Rikishi _rikishi = Rikishi();
