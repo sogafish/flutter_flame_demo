@@ -1,1 +1,0 @@
- /Users/sogapc/Projects/flutter_flame_demo/.dart_tool/flutter_build/00046a9a13d41786b6c2e3fe3834a5c2/native_assets.yaml: 
