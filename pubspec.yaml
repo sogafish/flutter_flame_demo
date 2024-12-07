@@ -1,11 +1,15 @@
 name: flutter_flame_demo
-description: "A new Flutter project."
+description: "Game Demo by Flame"
+version: 0.0.1
+publish_to: none
+
 environment:
   sdk: ^3.5.4
+  flutter: ^3.13.0
+
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   flame: ^1.22.0
 dev_dependencies:
   flutter_test:
