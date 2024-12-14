@@ -35,7 +35,7 @@ class KlondikeGame extends FlameGame {
         ..size = cardSize
         ..position = Vector2(
           cardGap + i * (cardWidth + cardGap),
-          cardHeight + 2 * cardGap,
+          cardHeight + 2 * cardGap * 2.5, // todo:調整
         ),
     );
 
