@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flutter_flame_demo/components/card.dart';
 import 'package:flutter_flame_demo/components/foundation.dart';
 import 'package:flutter_flame_demo/components/pile.dart';
 import 'package:flutter_flame_demo/components/stock.dart';
@@ -19,9 +20,13 @@ class KlondikeGame extends FlameGame {
     final stock = Stock()
       ..size = cardSize
       ..position = Vector2(cardGap, cardGap);
+    world.add(stock);
+
     final waste = Waste()
       ..size = cardSize
       ..position = Vector2(cardWidth + 2 * cardGap, cardGap);
+    world.add(waste);
+
     final foundations = List.generate(
       4,
       (i) => Foundation()
@@ -29,6 +34,8 @@ class KlondikeGame extends FlameGame {
         ..position =
             Vector2((i + 3) * (cardWidth + cardGap) + cardGap, cardGap),
     );
+    world.addAll(foundations);
+
     final piles = List.generate(
       7,
       (i) => Pile()
@@ -38,11 +45,13 @@ class KlondikeGame extends FlameGame {
           cardHeight + 2 * cardGap * 2.5, // todo:調整
         ),
     );
-
-    world.add(stock);
-    world.add(waste);
-    world.addAll(foundations);
     world.addAll(piles);
+
+    final cards = [
+      for (var rank = 1; rank <= 13; rank++)
+        for (var suit = 0; suit < 4; suit++) Card(rank, suit)
+    ];
+    world.addAll(cards);
 
     camera.viewfinder.visibleGameSize =
         Vector2(cardWidth * 7 + cardGap * 8, 4 * cardHeight + 3 * cardGap);
