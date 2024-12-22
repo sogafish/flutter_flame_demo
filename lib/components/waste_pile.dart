@@ -14,4 +14,10 @@ class WastePile extends PositionComponent {
 
     _cards.add(card);
   }
+
+  List<Card> removeAllCards() {
+    final cards = _cards.toList();
+    _cards.clear();
+    return cards;
+  }
 }
