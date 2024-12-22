@@ -167,6 +167,14 @@ class Card extends PositionComponent {
       case 13:
         _drawSprite(canvas, suit.isRed ? redKing : blackKing, 0.5, 0.5);
     }
+
+    final _borderPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 10
+      ..color = const Color(0x50ffffff);
+    late final _suitPaint = Paint()
+      ..color = suit.isRed ? const Color(0x3a000000) : const Color(0x64000000)
+      ..blendMode = BlendMode.luminosity;
   }
 
   void _drawSprite(
