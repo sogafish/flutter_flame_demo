@@ -1,10 +1,11 @@
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter_flame_demo/components/card.dart';
+import 'package:flutter_flame_demo/components/pile.dart';
 import 'package:flutter_flame_demo/components/waste_pile.dart';
 import 'package:flutter_flame_demo/games/klondike_game.dart';
 
-class StockPile extends PositionComponent {
+class StockPile extends PositionComponent with TapCallbacks implements Pile {
   StockPile({super.position}) : super(size: KlondikeGame.cardSize);
 
   final List<Card> _cards = [];
@@ -16,6 +17,7 @@ class StockPile extends PositionComponent {
     _cards.add(card);
   }
 
+  @override
   void onTapUp(TapUpEvent event) {
     final wastePile = parent!.firstChild<WastePile>()!;
     if (_cards.isEmpty) {
